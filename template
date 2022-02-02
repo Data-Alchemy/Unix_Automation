@@ -1,0 +1,12 @@
+nodes:
+  template:
+    box: centos7
+    cpus: 2
+    memory: 2048
+    provisioners:
+      - puppet:
+          environment_path: puppet/environments
+          environment: devel
+    hiera:
+      classes:
+        - profile::toolchain::common

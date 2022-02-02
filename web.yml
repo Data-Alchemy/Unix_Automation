@@ -1,0 +1,57 @@
+nodes:
+  web:
+    box: centos7
+    guest: redhat
+    memory: 2048
+    cpus: 2
+    forwarded_ports:
+      - host: 6542
+        guest: 6542
+        desc: GoVault (Dev)
+      - host: 6543
+        guest: 6543
+        desc: ZymeVault API (Dev)
+      - host: 4001
+        guest: 4001
+        desc: Datasets Server
+      - host: 4002
+        guest: 4002
+        desc: Datasets Server (Dev)
+      - host: 5002
+        guest: 5002
+        desc: Hub (Dev)
+      - host: 7001
+        guest: 7001
+        desc: Zapp Server
+      - host: 7002
+        guest: 7002
+        desc: Zapp Server (Dev)
+      - host: 8001
+        guest: 8001
+        desc: Task Server
+      - host: 8002
+        guest: 8002
+        desc: Task Server (Dev)
+      - host: 9998
+        guest: 9998
+        desc: Gatekeeper (Dev)
+      - host: 9999
+        guest: 9999
+        desc: Gatekeeper
+    restricted-datasets:
+      - vagrant
+    provisioners:
+      - puppet:
+          environment_path: puppet/environments
+          environment: devel
+    hiera:
+      classes:
+        - profile::toolchain::platform
+        - profile::toolchain::web
+        - profile::gatekeeper::server
+        - profile::datasets::server
+        - profile::taskserver::server
+        - profile::platform::software
+      gatekeeper::db_import: '/vagrant/.datasets/restricted/web/vagrant/gatekeeper.sqlc'
+      zymevault::db_import: '/vagrant/.datasets/restricted/web/vagrant/zymevault.sqlc'
+      datasets::root_path: /vagrant/.datasets/restricted/web

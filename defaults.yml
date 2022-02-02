@@ -1,0 +1,10 @@
+# Default configuration for all VMs
+
+# Common boxes
+boxes:
+  centos7: boxes/centos7
+
+# Puppet environments
+environments:
+  manage: true
+  namespace: devops

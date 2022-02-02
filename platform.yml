@@ -1,0 +1,22 @@
+nodes:
+  platform:
+    box: centos7
+    guest: redhat
+    memory: 2048
+    cpus: 2
+    provisioners:
+      - puppet:
+          environment_path: puppet/environments
+          environment: devel
+    datasets:
+      - altconf
+      - ffdb/3.5
+      - kbp/4
+      - rotamers/1
+      - sequence-numbering
+    hiera:
+      classes:
+        - profile::toolchain::platform
+        - profile::platform::software
+        - profile::cuda::drivers
+        - sge6::vagrant

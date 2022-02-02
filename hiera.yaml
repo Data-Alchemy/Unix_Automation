@@ -1,0 +1,36 @@
+---
+version: 5
+defaults:
+  datadir: hieradata
+  data_hash: yaml_data
+:hierarchy:
+- name: Global data
+  path: global.yaml
+- name: Platform Release
+  path: platform.yaml
+- name: Common data
+  path: common.yaml
+- name: Host name specific
+  path: hosts/%{::hostname}.yaml
+- name: FQDN Classifier
+  path: hosts/%{::fqdn}.yaml
+- name: Certificate name classifier
+  path: hosts/%{::clientcert}.yaml
+- name: Alternative name matcher
+  path: hosts/%{::altname}.yaml
+- name: Domain specific
+  path: domains/%{::domain}.yaml
+- name: OS family specific
+  path: "%{::osfamily}.yaml"
+- name: OS Release specific
+  path: "%{::operatingsystem}/%{::operatingsystemrelease}.yaml"
+- name: OS Release major version specific
+  path: "%{::operatingsystem}/%{::operatingsystemmajrelease}.yaml"
+- name: OS Specific
+  path: "%{::operatingsystem}.yaml"
+- name: Hostgroup (glob) specific
+  path: hostgroups/%{::hostgroup}.yaml
+- name: Developer customizations
+  path: developer.yaml
+- name: Catch defaults
+  path: default.yaml

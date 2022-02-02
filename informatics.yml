@@ -1,0 +1,18 @@
+nodes:
+  informatics:
+    box: centos7
+    guest: redhat
+    memory: 2048
+    cpus: 2
+    provisioners:
+      - puppet:
+          environment_path: puppet/environments
+          environment: devel
+    hiera:
+      classes:
+        - profile::toolchain::platform
+        - profile::platform::software
+      profile::platform::modules::autoload:
+        - 'zymeworks/base'
+        - 'zymeworks/R36-packages'
+

@@ -1,0 +1,9 @@
+---
+sources:
+  puppet-control:
+    remote: https://gitlab.zymeworks.com/devops/puppet-control.git
+    basedir: ./environments/
+deploy:
+  purge_levels: [ 'environment', 'puppetfile' ]
+forge:
+  baseurl: 'https://artifactory.zymeworks.com/api/puppet/forge'

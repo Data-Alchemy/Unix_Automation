@@ -1,0 +1,26 @@
+forge 'https://forgeapi.puppetlabs.com'
+
+# Modules discovered by generate-puppetfile
+mod 'lwf-remote_file', '1.1.3'
+mod 'puppet/archive', '1.3.0'
+mod 'puppet/nginx', '0.7.0'
+mod 'puppet-yum', '2.2.1'
+mod 'puppetlabs/apt', '2.3.0'
+mod 'puppetlabs/concat', '3.0.0'
+mod 'puppetlabs/firewall', '1.9.0'
+mod 'puppetlabs/java', '2.1.0'
+mod 'puppetlabs-ntp', '7.3.0'
+mod 'puppetlabs/postgresql', '5.12.1'
+mod 'puppetlabs/vcsrepo', '2.0.0'
+mod 'puppetlabs/stdlib', '4.18.0'
+mod 'saz/resolv_conf', '3.3.0'
+mod 'stahnma/epel', '1.2.2'
+mod 'stankevich/python', '1.18.2'
+# Zymeworks modules
+mod 'zymeworks-datasets', '0.8.3'
+mod 'zymeworks-gatekeeper', '0.8.6'
+mod 'zymeworks-hub', '0.1.1'
+mod 'zymeworks-repos', '0.1.4'
+mod 'zymeworks-taskserver', :latest # <- Use :latest until stable
+mod 'zymeworks-zapp', '0.5.0'
+mod 'zymeworks-zymevault', '0.5.0'
